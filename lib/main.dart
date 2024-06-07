@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/my-container.dart';
+import 'package:untitled/row_column.dart';
+import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 
-void main() => runApp(MyApp());
+void main() {
+  debugPaintSizeEnabled = false;
+  return runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -12,7 +18,7 @@ class MyApp extends StatelessWidget {
           appBarTheme: AppBarTheme(
             backgroundColor: Colors.amber,
           )),
-      home: HomePage(),
+      home: MyContainer(),
     );
   }
 }
