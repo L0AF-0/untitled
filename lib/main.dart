@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/my-container.dart';
+import 'package:untitled/my_flexible.dart';
 import 'package:untitled/row_column.dart';
 import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
           appBarTheme: AppBarTheme(
             backgroundColor: Colors.amber,
           )),
-      home: MyContainer(),
+      home: MyFlex(),
     );
   }
 }
