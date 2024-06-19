@@ -5,8 +5,8 @@ class Question {
   final List<Map> answers;
 
   Question({
-    @required this.title,
-    @required this.answers,
+    required this.title,
+    required this.answers,
   });
 }
 
@@ -30,8 +30,7 @@ class QuestionData {
           {'answer' : '3',},
         ]
     ),
-  ]
+  ];
 
   List<Question> get questions => [..._data];
 }
-;
