@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/models/Question.dart';
+import 'package:untitled/widgets/answer.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -16,32 +17,38 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Тестирование')),
-      body: Column(
-        children: <Widget>[
+      body: Container(
+        constraints: BoxConstraints.expand(),
+        decoration: BoxDecoration(
+          color: const Color(0xff2a375a),
+          image: DecorationImage(
+              image: AssetImage('assets/images/bd.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(
+          children: <Widget>[
 
-          Container(
-            padding: const EdgeInsets.all(10.0),
-            child: Text('Вопрос!'),
-          ),
-          Container(
-            padding: const EdgeInsets.all(10.0),
-            child: Text('Ответ 1'),
-          ),
-          Container(
-            padding: const EdgeInsets.all(10.0),
-            child: Text('Ответ 2'),
-          ),
-          Container(
-            padding: const EdgeInsets.all(10.0),
-            child: Text('Ответ 3'),
-          ),
-          Container(
-            padding: const EdgeInsets.all(10.0),
-            child: Text('Ответ 4'),
-          ),
+            Container(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                  data.questions[_questionIndex].title,
+                      style: Theme.of(context).textTheme.bodySmall,
+              ),
+            ),
 
+            ...data.questions[_questionIndex].answers.map(
+                (value) => Answer(title: value['answer'],)
+            ).toList(),
 
-        ],
+            ElevatedButton(
+                onPressed: () =>
+                    setState(() => _questionIndex++),
+                    child: Text('Дальше'),
+            ),
+
+          ],
+        ),
       ),
     );
   }

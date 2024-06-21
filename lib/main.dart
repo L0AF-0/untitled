@@ -13,10 +13,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Quiz App',
       theme: ThemeData(
-          primarySwatch: Colors.amber,
+          primarySwatch: Colors.lightBlue,
           appBarTheme: AppBarTheme(
             backgroundColor: Colors.deepPurple,
-          )),
+          ),
+          textTheme: TextTheme(
+            bodySmall: TextStyle(fontSize: 22.0, color: Colors.white),
+      ),
+        fontFamily: 'Georgia',
+      ),
       home: HomePage(),
     );
   }
